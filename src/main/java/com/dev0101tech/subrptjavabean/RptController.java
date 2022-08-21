@@ -7,11 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.FileSystems;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,15 +41,19 @@ public class RptController {
     }
 
 
-    public byte[] renderRptByte() throws URISyntaxException {
+    public byte[] renderRptByte() {
+        String baseRptFolderPath = "D://zProfessional_Projects/dev-workspace/jasper-reports/jspr-sub-rpt-javabean/jsprsubrptjavabean/src/main/resources/reports";
         String  jasperRptFileName = "master_report";
         String  jasperSubRptFileName = "subreport_report";
         // Get absolute report folder path
+        // All are not working in JAR deployment
 //        File file = ResourceUtils.getFile("classpath:reports");
-        URL res = getClass().getClassLoader().getResource("reports");
-        assert res != null;
-        File file = Paths.get(res.toURI()).toFile();
-        String baseRptFolderPath = file.getAbsolutePath();
+//        File resource = new ClassPathResource("reports/aPathFind.txt").getFile();
+//        System.out.println("Absolute path is: resource : " + resource.getAbsolutePath());
+//        URL res = getClass().getClassLoader().getResource("reports");
+//        assert res != null;
+//        System.out.println("res.toURI() : " + res.toURI());
+//        File file = Paths.get(res.toURI()).toFile();
         System.out.println("Absolute path is : " + baseRptFolderPath);
         String fileSeparator = FileSystems.getDefault().getSeparator();
         String targetReportPath = baseRptFolderPath + fileSeparator + jasperRptFileName + ".jrxml";
@@ -80,7 +80,7 @@ public class RptController {
     }
 
     @RequestMapping("/get-rpt")
-    public ResponseEntity<byte[]> getRpt() throws URISyntaxException {
+    public ResponseEntity<byte[]> getRpt() {
         // renderRpt();
         String filename = "addressReport";
         byte[] data = renderRptByte();
