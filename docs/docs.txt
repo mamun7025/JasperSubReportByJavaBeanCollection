@@ -1,0 +1,6 @@
+
+https://www.tutorialspoint.com/jasper_reports/jasper_create_subreports.htm#
+https://www.youtube.com/watch?v=dgLjnnnvDmk
+
+https://www.youtube.com/watch?v=8eR_gvFfRLM&t=131s
+https://gitlab.com/codingboot-youtube/spring-data-jpa-example/-/blob/master/src/main/java/com/codingboot/controller/InvoiceController.java

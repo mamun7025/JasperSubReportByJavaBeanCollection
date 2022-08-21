@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8f9ab16a-53a3-4768-8a2b-583587e9c918">
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\zProfessional_Projects\\dev-workspace\\jasper-reports\\jspr-sub-rpt-javabean\\jsprsubrptjavabean\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="country" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="subReportBeanList" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="204" height="34" uuid="1f4cf27b-216e-46ec-bf61-9e716d74f9e0"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="79a5a66a-6cf7-47c0-9bf3-e7c3e2166e89"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="ec4357c2-2ccd-40ca-9121-adb1bbb0bbe2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="0" width="277" height="20" uuid="dda870bf-f631-4e89-8ba4-d03c3d6eeab8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="20" width="277" height="20" uuid="fa5ad24d-f8de-4472-abf6-ca1792647365"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="335" y="25" width="175" height="20" isRemoveLineWhenBlank="true" backcolor="#99CCFF" uuid="f8c88f87-7e33-4f8c-90a1-4b00dcfa3069"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{subReportBeanList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "address_report_template.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="0" y="50" width="550" height="1" uuid="44335f76-0269-41ec-ac88-d4ec697ea684"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+</jasperReport>
